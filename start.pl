@@ -91,8 +91,12 @@ $_->join for (@coros);
 
 sub generateList {
 	my @tmp;
-	my $login = shift(@Logins);
-	push @tmp, { login => $login, password => $_ } for (@Passwords);
+	# my $login = shift(@Logins);
+	# push @tmp, { login => $login, password => $_ } for (@Passwords);
+
+	my $password = shift(@Passwords);
+	push @tmp, { login => $_, password => $password } for (@Logins);
+
 	return @tmp;
 }
 
